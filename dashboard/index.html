@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataHub Health Guardian — AI-Powered Data Monitoring</title>
+    <meta name="description" content="Autonomous AI agent that monitors your data ecosystem through DataHub">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient background -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-icon">🏥</span>
+                <div>
+                    <h1>Health Guardian</h1>
+                    <span class="logo-sub">Powered by DataHub + Gemini AI</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="status-badge" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span>Demo Mode</span>
+            </div>
+            <button class="btn btn-primary" id="scanBtn" onclick="runScan()">
+                <span class="btn-icon">⚡</span> Run Scan
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Health Score Hero -->
+        <section class="hero-section">
+            <div class="score-card glass-card">
+                <div class="score-ring-container">
+                    <svg class="score-ring" viewBox="0 0 120 120">
+                        <circle class="score-ring-bg" cx="60" cy="60" r="52" />
+                        <circle class="score-ring-progress" id="scoreRing" cx="60" cy="60" r="52" />
+                    </svg>
+                    <div class="score-value" id="healthScore">--</div>
+                </div>
+                <div class="score-label">Health Score</div>
+                <div class="risk-badge" id="riskBadge">Scanning...</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <div class="stat-value" id="datasetsScanned">--</div>
+                    <div class="stat-label">Datasets Scanned</div>
+                    <div class="stat-icon">📊</div>
+                </div>
+                <div class="stat-card glass-card critical">
+                    <div class="stat-value" id="criticalCount">--</div>
+                    <div class="stat-label">Critical Issues</div>
+                    <div class="stat-icon">❌</div>
+                </div>
+                <div class="stat-card glass-card warning">
+                    <div class="stat-value" id="warningCount">--</div>
+                    <div class="stat-label">Warnings</div>
+                    <div class="stat-icon">⚠️</div>
+                </div>
+                <div class="stat-card glass-card info">
+                    <div class="stat-value" id="infoCount">--</div>
+                    <div class="stat-label">Info</div>
+                    <div class="stat-icon">ℹ️</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Analysis -->
+        <section class="section">
+            <h2 class="section-title">🤖 AI Analysis</h2>
+            <div class="analysis-card glass-card" id="analysisCard">
+                <div class="analysis-summary" id="executiveSummary">
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-text short"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Priorities -->
+        <section class="section">
+            <h2 class="section-title">🎯 Top Priorities</h2>
+            <div class="priorities-list" id="prioritiesList">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Dataset Health Grid -->
+        <section class="section">
+            <h2 class="section-title">📊 Dataset Health Map</h2>
+            <div class="dataset-grid" id="datasetGrid">
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Lineage Impact -->
+        <section class="section">
+            <h2 class="section-title">🔗 Lineage Impact Analysis</h2>
+            <div class="lineage-cards" id="lineageCards">
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Quick Wins -->
+        <section class="section">
+            <h2 class="section-title">⚡ Quick Wins</h2>
+            <div class="quickwins-list glass-card" id="quickWinsList">
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+            </div>
+        </section>
+
+        <!-- Full Report -->
+        <section class="section">
+            <h2 class="section-title">📋 Full Report</h2>
+            <div class="report-card glass-card" id="reportCard">
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Built with ❤️ for <a href="https://datahub.devpost.com" target="_blank">Build with DataHub: The Agent Hackathon</a></p>
+        <p class="footer-tech">DataHub MCP Server · Google Gemini AI · Python · FastAPI</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
