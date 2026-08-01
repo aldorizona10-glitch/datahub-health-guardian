@@ -35,6 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
         svg.prepend(defs);
     }
 
+    // Theme toggling
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+        });
+    }
+
     // Auto-load demo data
     loadDemoData();
 });

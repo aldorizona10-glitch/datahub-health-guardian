@@ -1,6 +1,6 @@
 /* ============================================
    DataHub Health Guardian — Dashboard Styles
-   Premium dark theme with glassmorphism
+   Premium dark theme with glassmorphism and light mode support
    ============================================ */
 
 :root {
@@ -33,6 +33,23 @@
     --radius-xl: 24px;
 
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+
+    --critical-bg: rgba(239, 68, 68, 0.15);
+    --warning-bg: rgba(245, 158, 11, 0.15);
+    --info-bg: rgba(59, 130, 246, 0.15);
+    --success-bg: rgba(16, 185, 129, 0.15);
 }
 
 * {
@@ -117,7 +134,7 @@ body {
 
 .glass-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Header */
@@ -129,7 +146,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 16px 32px;
-    background: rgba(10, 14, 26, 0.8);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -201,6 +218,33 @@ body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
 }
+
+/* Theme Toggle */
+.theme-toggle {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="light"] .theme-icon-light { display: none; }
+[data-theme="light"] .theme-icon-dark { display: block; }
+[data-theme="dark"] .theme-icon-light { display: block; }
+[data-theme="dark"] .theme-icon-dark { display: none; }
+:root:not([data-theme="light"]) .theme-icon-dark { display: none; }
 
 /* Buttons */
 .btn {
@@ -277,7 +321,7 @@ body {
 
 .score-ring-bg {
     fill: none;
-    stroke: rgba(255, 255, 255, 0.06);
+    stroke: rgba(150, 150, 150, 0.2);
     stroke-width: 8;
 }
 
@@ -634,7 +678,7 @@ body {
 .skeleton-text {
     height: 16px;
     border-radius: 8px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
+    background: linear-gradient(90deg, rgba(150,150,150,0.1) 0%, rgba(150,150,150,0.2) 50%, rgba(150,150,150,0.1) 100%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
     margin-bottom: 12px;
@@ -645,7 +689,7 @@ body {
 .skeleton-card {
     height: 80px;
     border-radius: var(--radius-lg);
-    background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.02) 100%);
+    background: linear-gradient(90deg, rgba(150,150,150,0.1) 0%, rgba(150,150,150,0.2) 50%, rgba(150,150,150,0.1) 100%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
     margin-bottom: 12px;
@@ -711,9 +755,9 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(150, 150, 150, 0.3);
     border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(150, 150, 150, 0.5);
 }
